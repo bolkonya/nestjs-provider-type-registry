@@ -1,0 +1,10 @@
+node_modules/
+dist/
+coverage/
+.yarn/*
+!.yarn/patches
+*.tgz
+*.log
+.env
+.env.*
+.DS_Store

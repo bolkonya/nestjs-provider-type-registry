@@ -1,0 +1,7 @@
+export * from './defs/interfaces'
+export * from './defs/types'
+export * from './errors'
+export * from './provider-type-registry.module'
+export * from './provider-type-registry.service'
+export * from './utils'
+export { injectProviderTypeRegistry as InjectProviderTypeRegistry } from './utils/inject-provider-type-registry.util'
