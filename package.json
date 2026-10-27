@@ -1,6 +1,6 @@
 {
   "name": "nestjs-provider-type-registry",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Type-safe decorator-driven provider registries for NestJS.",
   "license": "MIT",
   "author": "Roman Bessonov",
