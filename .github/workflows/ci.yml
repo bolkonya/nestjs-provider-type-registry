@@ -19,6 +19,7 @@ jobs:
     strategy:
       matrix:
         node: [20, 22, 24]
+        nest: [11, 12]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -26,6 +27,11 @@ jobs:
           node-version: ${{ matrix.node }}
       - run: corepack enable
       - run: yarn install --immutable
+        env:
+          HUSKY: '0'
+      - name: Install NestJS 12 for compatibility checks
+        if: matrix.nest == 12
+        run: yarn add --dev @nestjs/common@^12 @nestjs/core@^12 @nestjs/testing@^12
         env:
           HUSKY: '0'
       - run: yarn check
