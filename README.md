@@ -6,7 +6,9 @@ The registry discovers providers through NestJS metadata, validates their base c
 
 ## Requirements and installation
 
-Node.js 20+, NestJS 11, and TypeScript with `experimentalDecorators` and `emitDecoratorMetadata` enabled.
+Node.js 20+, NestJS 11 or 12, and TypeScript with `experimentalDecorators` and `emitDecoratorMetadata` enabled.
+
+NestJS 12 is ESM-only. CommonJS consumers need a Node.js version with synchronous `require(esm)` support: 20.19+, 22.12+, or 24+. The library provides both CommonJS and ESM entry points.
 
 ```bash
 npm install nestjs-provider-type-registry @nestjs/common @nestjs/core reflect-metadata rxjs
@@ -95,7 +97,7 @@ yarn install --immutable
 yarn check
 ```
 
-`yarn check` runs TypeScript, ESLint, Prettier, unit tests, the build, and integration tests of the built CommonJS and ESM entry points. CI runs on Node.js 20, 22, and 24. `npm pack --dry-run` shows the publication contents; only `dist`, package metadata, the README, and the license are published.
+`yarn check` runs TypeScript, ESLint, Prettier, unit tests, the build, and integration tests of the built CommonJS and ESM entry points. CI checks NestJS 11 and 12 on Node.js 20, 22, and 24. Unit tests use Jest 30 with VM Modules to load NestJS 12's ESM packages. `npm pack --dry-run` shows the publication contents; only `dist`, package metadata, the README, and the license are published.
 
 Husky runs lint-staged before commits and commitlint on commit messages. Use Conventional Commits such as `feat: add a registry option` and `fix: handle missing providers`. PR titles are checked as squash commit messages. This personal project does not require Jira IDs or corporate branch names.
 
